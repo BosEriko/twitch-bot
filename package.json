@@ -5,6 +5,9 @@
   "repository": "git@github.com:BosEriko/twitch-bot.git",
   "author": "BosEriko <bos.eriko@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node -r dotenv/config your_script.js"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "tmi.js": "^1.5.0"
