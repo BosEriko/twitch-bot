@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:BosEriko/twitch-bot.git",
   "author": "BosEriko <bos.eriko@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "tmi.js": "^1.5.0"
+  }
 }
