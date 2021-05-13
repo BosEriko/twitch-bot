@@ -6,7 +6,7 @@
   "author": "BosEriko <bos.eriko@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node -r dotenv/config your_script.js"
+    "start": "node -r dotenv/config src/index.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
