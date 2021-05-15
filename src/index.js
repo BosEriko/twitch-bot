@@ -35,6 +35,9 @@ function onMessageHandler (target, context, msg, self) {
   } else {
     console.log(`* Unknown command ${commandName}`);
   }
+  if (commandName === 'F') {
+    client.say(target, `Fs in the chat bois.`);
+  }
 }
 // Function called when the "dice" command is issued
 function rollDice () {
