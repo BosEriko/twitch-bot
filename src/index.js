@@ -38,8 +38,11 @@ function onMessageHandler (target, context, msg, self) {
     console.log(`* Unknown command ${commandName}`);
   }
   
-  const specialPipol = (context.badge["vip"] != undefined && context.badge["vip"]) || (context.badge["moderator"] != undefined && context.badge["moderator"])
+  const badges = context.badges
   
+  // const specialPipol = (badges["vip"] != undefined && badges?["vip"]) || (badges["moderator"] != undefined && badges["moderator"])
+    const specialPipol = badges?["vip"] || badges?["moderator"]
+                        
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
     if (specialPipol) {
