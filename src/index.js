@@ -40,7 +40,7 @@ function onMessageHandler (target, context, msg, self) {
   
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
-    if (context["display-name"].toLowerCase() === "boseriko") {
+    if (context.badge["vip"] || context.badge["moderator"]) {
       client.say(target, `You are 10 of 10 pogi.`);
     } else {
     const num = roll(10);
@@ -51,9 +51,13 @@ function onMessageHandler (target, context, msg, self) {
   
    // If the command is known, let's execute it
   if (commandName === '!gandarate') {
+    if (context.badge["vip"] || context.badge["moderator"]) {
+      client.say(target, `You are 10 of 10 ganda.`);
+    } else {
     const num = roll(10);
-    client.say(target, `You are ${num} of 10 ganda.`);
-    console.log(`* Executed ${commandName} command`);
+      client.say(target, `You are ${num} of 10 ganda.`);
+      console.log(`* Executed ${commandName} command`);
+    }
   }
   
   if (commandName === 'F') {
