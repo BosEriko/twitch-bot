@@ -40,7 +40,7 @@ function onMessageHandler (target, context, msg, self) {
   
   const badges = context.badges
   
-  const specialPipol = (badges["vip"] != undefined && badges["vip"]) || (badges["moderator"] != undefined && badges["moderator"])
+  const specialPipol = (badges["broadcaster"] != undefined && badges["broadcaster"]) || (badges["vip"] != undefined && badges["vip"]) || (badges["moderator"] != undefined && badges["moderator"])
                         
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
