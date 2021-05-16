@@ -23,8 +23,6 @@ client.connect();
 // Called every time a message comes in
 function onMessageHandler (target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
-  
-  console.log(context);
 
   // Remove whitespace from chat message
   const commandName = msg.trim();
@@ -40,9 +38,13 @@ function onMessageHandler (target, context, msg, self) {
   
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
+    if (context["display-name"].toLowerCase() === "boseriko") {
+      client.say(target, `You are 10 of 10 pogi.`);
+    } else {
     const num = roll(10);
-    client.say(target, `You are ${num} of 10 pogi.`);
-    console.log(`* Executed ${commandName} command`);
+      client.say(target, `You are ${num} of 10 pogi.`);
+      console.log(`* Executed ${commandName} command`);
+    }
   }
   
    // If the command is known, let's execute it
