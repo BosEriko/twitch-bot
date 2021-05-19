@@ -7,7 +7,7 @@ const opts = {
     password: process.env.OAUTH_TOKEN
   },
   channels: [
-    process.env.CHANNEL_NAME,
+    boseriko,
     kongbeaniee
   ]
 };
