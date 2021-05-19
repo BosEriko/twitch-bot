@@ -7,7 +7,8 @@ const opts = {
     password: process.env.OAUTH_TOKEN
   },
   channels: [
-    "boseriko"
+    "boseriko",
+    "kongbeaniee"
   ]
 };
 // Create a client with our options
@@ -43,14 +44,21 @@ function onMessageHandler (target, context, msg, self) {
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
     const num = roll(10);
-    client.say(target, `You are ${num} of 10 pogi.`);
+    client.say(target, `You are ${num} out of 10 pogi.`);
+    console.log(`* Executed ${commandName} command`);
+  }
+  
+  // If the command is known, let's execute it
+  if (commandName === '!lanjutrate') {
+    const num = roll(10);
+    client.say(target, `You are ${num} out of 10 malanjuts.`);
     console.log(`* Executed ${commandName} command`);
   }
   
    // If the command is known, let's execute it
   if (commandName === '!gandarate') {
     const num = roll(10);
-    client.say(target, `You are ${num} of 10 ganda.`);
+    client.say(target, `You are ${num} out of 10 ganda.`);
     console.log(`* Executed ${commandName} command`);
   }
   
