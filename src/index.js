@@ -41,29 +41,18 @@ function onMessageHandler (target, context, msg, self) {
   
   const badges = context.badges
   
-  let specialPipol = badges != undefined && (badges["broadcaster"] != undefined && badges["broadcaster"]) || (badges["vip"] != undefined && badges["vip"]) || (badges["moderator"] != undefined && badges["moderator"])
-  specialPipol = false
-  
   // If the command is known, let's execute it
   if (commandName === '!pogirate') {
-    if (specialPipol) {
-      client.say(target, `You are 10 of 10 pogi.`);
-    } else {
     const num = roll(10);
-      client.say(target, `You are ${num} of 10 pogi.`);
-      console.log(`* Executed ${commandName} command`);
-    }
+    client.say(target, `You are ${num} of 10 pogi.`);
+    console.log(`* Executed ${commandName} command`);
   }
   
    // If the command is known, let's execute it
   if (commandName === '!gandarate') {
-    if (specialPipol) {
-      client.say(target, `You are 10 of 10 ganda.`);
-    } else {
     const num = roll(10);
-      client.say(target, `You are ${num} of 10 ganda.`);
-      console.log(`* Executed ${commandName} command`);
-    }
+    client.say(target, `You are ${num} of 10 ganda.`);
+    console.log(`* Executed ${commandName} command`);
   }
   
   if (commandName === 'F') {
