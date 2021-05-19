@@ -9,7 +9,9 @@ const opts = {
   channels: [
     "boseriko",
     "kongbeaniee",
-    "donkairu"
+    "donkairu",
+    "franzzzu",
+    "bibzboy"
   ]
 };
 // Create a client with our options
