@@ -7,8 +7,8 @@ const opts = {
     password: process.env.OAUTH_TOKEN
   },
   channels: [
-    boseriko,
-    kongbeaniee
+    "boseriko",
+    "kongbeaniee" 
   ]
 };
 // Create a client with our options
