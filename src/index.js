@@ -11,7 +11,8 @@ const opts = {
     "kongbeaniee",
     "donkairu",
     "franzzzu",
-    "bibzboy"
+    "bibzboy",
+    "mhistral"
   ]
 };
 // Create a client with our options
