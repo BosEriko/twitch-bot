@@ -58,10 +58,16 @@ function onMessageHandler (target, context, msg, self) {
     console.log(`* Executed ${commandName} command`);
   }
   
-   // If the command is known, let's execute it
+  // If the command is known, let's execute it
   if (commandName === '!gandarate') {
     const num = roll(10);
     client.say(target, `You are ${num} out of 10 ganda.`);
+    console.log(`* Executed ${commandName} command`);
+  }
+  
+  // If the command is known, let's execute it
+  if (commandName === '!timein') {
+    client.say(target, `Salamat sa time in!`);
     console.log(`* Executed ${commandName} command`);
   }
   
