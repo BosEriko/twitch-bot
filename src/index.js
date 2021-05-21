@@ -16,8 +16,8 @@ const opts = {
 const client = new tmi.client(opts);
 
 // Fetch API
-let getChannelFunction = async function (userID) {
-  return await axios({
+let getChannelFunction = async (userID) => {
+  await axios({
     method: 'GET',
     url: `https://api.twitch.tv/kraken/channels/${userID}/videos`,
     mode: 'cors',
