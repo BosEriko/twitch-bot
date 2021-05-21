@@ -90,7 +90,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log(`* Executed ${getChannelFunction("645565893").videos[0].game} command`);
+    console.log(getChannelFunction("645565893"));
   }
   
   if (commandName === 'F') {
