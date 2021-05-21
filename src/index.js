@@ -29,7 +29,7 @@ let getChannelFunction = (userID) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    console.log(res.data);
+    console.log(res.data.videos[0].game);
   });
 }
 
@@ -89,7 +89,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log(getChannelFunction("645565893").videos[0].game);
+    console.log(getChannelFunction("645565893"));
   }
   
   if (commandName === 'F') {
