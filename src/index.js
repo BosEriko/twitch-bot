@@ -15,6 +15,23 @@ const opts = {
 // Create a client with our options
 const client = new tmi.client(opts);
 
+let getUserIdByUsername = (username) => {
+  axios({
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    url: `https://api.twitch.tv/kraken/users?login=${username}`,
+    credentials: 'same-origin',
+    headers:{
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.twitchtv.v5+json',
+      'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
+    }
+  }).then((res) => {
+    console.log(res.data);
+  });
+}
+
 // Fetch API
 let getChannelFunction = (userID) => {
   axios({
@@ -89,7 +106,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log(getChannelFunction("645565893"));
+    console.log(getUserIdByUsername("boseriko"));
   }
   
   if (commandName === 'F') {
