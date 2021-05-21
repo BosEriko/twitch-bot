@@ -28,12 +28,12 @@ let getUserIdByUsername = (username) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    console.log(res.data.users[0]._id);
+    return res.data.users[0]._id;
   });
 }
 
 // Fetch API
-let getChannelFunction = (userID) => {
+let getGameByUserId = (userID) => {
   axios({
     method: 'GET',
     mode: 'cors',
@@ -46,7 +46,7 @@ let getChannelFunction = (userID) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    console.log(res.data.videos[0].game);
+    return res.data.videos[0].game;
   });
 }
 
@@ -106,7 +106,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log(getUserIdByUsername("boseriko"));
+    console.log(getGameByUserId(getUserIdByUsername("boseriko")));
   }
   
   if (commandName === 'F') {
