@@ -40,7 +40,8 @@ let getGameByUsername = (username) => {
         'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
       }
     }).then((res) => {
-      return res.data.videos[0].game;
+      // return res.data.videos[0].game;
+      return "example"
     });
   });
 }
