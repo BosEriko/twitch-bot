@@ -9,6 +9,7 @@
     "start": "node -r dotenv/config src/index.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "firebase": "^8.6.1",
     "tmi.js": "^1.5.0"
