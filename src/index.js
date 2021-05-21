@@ -16,6 +16,7 @@ const opts = {
 const client = new tmi.client(opts);
 
 let getUserIdByUsername = (username) => {
+  let data;
   axios({
     method: 'GET',
     mode: 'cors',
@@ -28,12 +29,14 @@ let getUserIdByUsername = (username) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    return res.data.users[0]._id;
+    data = res.data.users[0]._id;
   });
+  return data;
 }
 
 // Fetch API
 let getGameByUserId = (userID) => {
+  let data;
   axios({
     method: 'GET',
     mode: 'cors',
@@ -46,8 +49,9 @@ let getGameByUserId = (userID) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    return res.data.videos[0].game;
+    data = res.data.videos[0].game;
   });
+  return data;
 }
 
 // Register our event handlers (defined below)
