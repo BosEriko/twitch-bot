@@ -8,15 +8,31 @@ const opts = {
   },
   channels: [
     "boseriko",
-    "kongbeaniee",
-    "donkairu",
-    "franzzzu",
-    "bibzboy",
-    "mhistral"
+    // "kongbeaniee",
+    // "donkairu",
+    // "franzzzu",
+    // "bibzboy",
+    // "mhistral"
   ]
 };
 // Create a client with our options
 const client = new tmi.client(opts);
+
+// Fetch API
+async function getChannelFunction (userID) {
+  const response = await fetch(`https://api.twitch.tv/kraken/channels/${userID}/videos`, {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.twitchtv.v5+json',
+      'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
+    }
+  });
+  return response.json();
+}
 
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
@@ -33,6 +49,7 @@ function onMessageHandler (target, context, msg, self) {
 
   // Remove whitespace from chat message
   const commandName = msg.trim();
+  const commandTag = msg.trim().trim();
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
@@ -70,6 +87,10 @@ function onMessageHandler (target, context, msg, self) {
   if (commandName === '!timein') {
     client.say(target, `Salamat sa time in!`);
     console.log(`* Executed ${commandName} command`);
+  }
+  
+  if (commandName === '!so') {
+    console.log(`* Executed ${getChannelFunction("645565893").videos[0].game} command`);
   }
   
   if (commandName === 'F') {
