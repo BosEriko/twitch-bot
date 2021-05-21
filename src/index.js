@@ -28,7 +28,7 @@ let getUserIdByUsername = (username) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    console.log(res.data);
+    console.log(res.data.users[0]._id);
   });
 }
 
