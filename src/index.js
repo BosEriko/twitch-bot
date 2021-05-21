@@ -44,7 +44,6 @@ let getGameByUsername = (username) => {
       console.log(data);
     });
   });
-  return data;
 }
 
 // Register our event handlers (defined below)
