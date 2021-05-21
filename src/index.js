@@ -106,7 +106,10 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log(getGameByUserId(getUserIdByUsername("boseriko")));
+    const userId = getUserIdByUsername("boseriko");
+    const userGame = getGameByUserId(userId);
+    console.log("user Id", userId);
+    console.log("user game", userGame);
   }
   
   if (commandName === 'F') {
