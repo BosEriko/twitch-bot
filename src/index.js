@@ -30,6 +30,7 @@ let getUserIdByUsername = (username) => {
     }
   }).then((res) => {
     data = res.data.users[0]._id;
+    console.log(data);
   });
   return data;
 }
@@ -50,6 +51,7 @@ let getGameByUserId = (userID) => {
     }
   }).then((res) => {
     data = res.data.videos[0].game;
+    console.log(data);
   });
   return data;
 }
