@@ -15,8 +15,7 @@ const opts = {
 // Create a client with our options
 const client = new tmi.client(opts);
 
-let getUserIdByUsername = (username) => {
-  let data;
+let getGameByUsername = (username) => {
   axios({
     method: 'GET',
     mode: 'cors',
@@ -29,29 +28,21 @@ let getUserIdByUsername = (username) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   }).then((res) => {
-    data = res.data.users[0]._id;
-    console.log(data);
-  });
-  return data;
-}
-
-// Fetch API
-let getGameByUserId = (userID) => {
-  let data;
-  axios({
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-    url: `https://api.twitch.tv/kraken/channels/${userID}/videos`,
-    credentials: 'same-origin',
-    headers:{
-      'Content-Type': 'application/json',
-      'Accept': 'application/vnd.twitchtv.v5+json',
-      'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
-    }
-  }).then((res) => {
-    data = res.data.videos[0].game;
-    console.log(data);
+    axios({
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      url: `https://api.twitch.tv/kraken/channels/${res.data.users[0]._id}/videos`,
+      credentials: 'same-origin',
+      headers:{
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.twitchtv.v5+json',
+        'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
+      }
+    }).then((res) => {
+      const data = res.data.videos[0].game;
+      console.log(data);
+    });
   });
   return data;
 }
@@ -112,10 +103,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    const userId = getUserIdByUsername("boseriko");
-    const userGame = getGameByUserId(userId);
-    console.log("user Id", userId);
-    console.log("user game", userGame);
+    console.log("game", getGameByUsername("boseriko"));
   }
   
   if (commandName === 'F') {
