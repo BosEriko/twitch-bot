@@ -16,17 +16,20 @@ const opts = {
 const client = new tmi.client(opts);
 
 // Fetch API
-let getChannelFunction = async (userID) => {
-  return await axios.get(`https://api.twitch.tv/kraken/channels/${userID}/videos`, {
+let getChannelFunction = (userID) => {
+  axios({
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
+    url: `https://api.twitch.tv/kraken/channels/${userID}/videos`,
     credentials: 'same-origin',
     headers:{
       'Content-Type': 'application/json',
       'Accept': 'application/vnd.twitchtv.v5+json',
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
+  }).then((res) => {
+    console.log(res.data);
   });
 }
 
