@@ -17,7 +17,7 @@ const client = new tmi.client(opts);
 
 // Fetch API
 let getChannelFunction = async (userID) => {
-  await axios({
+  const data = await axios({
     method: 'GET',
     url: `https://api.twitch.tv/kraken/channels/${userID}/videos`,
     mode: 'cors',
@@ -29,6 +29,9 @@ let getChannelFunction = async (userID) => {
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   });
+
+  console.log(data);
+  return data;
 }
 
 // Register our event handlers (defined below)
@@ -42,7 +45,7 @@ client.connect();
 function onMessageHandler (target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
   
-  console.log(context);
+  // console.log(context);
 
   // Remove whitespace from chat message
   const commandName = msg.trim();
