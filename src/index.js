@@ -1,4 +1,5 @@
 const tmi = require('tmi.js');
+const axios = require('axios');
 
 // Define configuration options
 const opts = {
@@ -7,31 +8,27 @@ const opts = {
     password: process.env.OAUTH_TOKEN
   },
   channels: [
-    "boseriko",
-    // "kongbeaniee",
-    // "donkairu",
-    // "franzzzu",
-    // "bibzboy",
-    // "mhistral"
+    "boseriko"
   ]
 };
+
 // Create a client with our options
 const client = new tmi.client(opts);
 
 // Fetch API
-async function getChannelFunction (userID) {
-  const response = await fetch(`https://api.twitch.tv/kraken/channels/${userID}/videos`, {
+let getChannelFunction = async function (userID) {
+  await axios({
     method: 'GET',
+    url: `https://api.twitch.tv/kraken/channels/${userID}/videos`,
     mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
-    headers: {
+    headers:{
       'Content-Type': 'application/json',
       'Accept': 'application/vnd.twitchtv.v5+json',
       'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
     }
   });
-  return response.json();
 }
 
 // Register our event handlers (defined below)
