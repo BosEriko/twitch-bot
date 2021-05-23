@@ -102,7 +102,11 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === '!so') {
-    console.log("game", getGameByUsername("boseriko"));
+    // console.log("game", getGameByUsername("boseriko"));
+  }
+  
+  if (commandName === '!bos') {
+    client.say(target, `/me Mahilig maminger https://clips.twitch.tv/SolidPatientBottleNononoCat-Rfk-xfZQUUeQ1csy`);
   }
   
   if (commandName === 'F') {
