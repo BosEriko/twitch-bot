@@ -15,37 +15,6 @@ const opts = {
 // Create a client with our options
 const client = new tmi.client(opts);
 
-let getGameByUsername = (username) => {
-  axios({
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-    url: `https://api.twitch.tv/kraken/users?login=${username}`,
-    credentials: 'same-origin',
-    headers:{
-      'Content-Type': 'application/json',
-      'Accept': 'application/vnd.twitchtv.v5+json',
-      'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
-    }
-  }).then((res) => {
-    axios({
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      url: `https://api.twitch.tv/kraken/channels/${res.data.users[0]._id}/videos`,
-      credentials: 'same-origin',
-      headers:{
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.twitchtv.v5+json',
-        'Client-ID': '4ovwggr1jw6kinx4xsyg100asm3g8t',
-      }
-    }).then((res) => {
-      // return res.data.videos[0].game;
-      return "example"
-    });
-  });
-}
-
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
 client.on('connected', onConnectedHandler);
@@ -99,14 +68,6 @@ function onMessageHandler (target, context, msg, self) {
   if (commandName === '!timein') {
     client.say(target, `Salamat sa time in!`);
     console.log(`* Executed ${commandName} command`);
-  }
-  
-  if (commandName === '!so') {
-    // console.log("game", getGameByUsername("boseriko"));
-  }
-  
-  if (commandName === '!bos') {
-    client.say(target, `/me Mahilig maminger https://clips.twitch.tv/SolidPatientBottleNononoCat-Rfk-xfZQUUeQ1csy`);
   }
   
   if (commandName === 'F') {
