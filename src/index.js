@@ -71,7 +71,7 @@ function onMessageHandler (target, context, msg, self) {
   }
   
   if (commandName === 'F') {
-    client.say(target, `Fs in the chat bois.`);
+    client.say(target, `press F for "garbage"`);
   }
 }
 // Function called when the "dice" command is issued
