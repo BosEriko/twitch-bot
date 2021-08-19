@@ -8,7 +8,8 @@ const opts = {
     password: process.env.OAUTH_TOKEN
   },
   channels: [
-    "boseriko"
+    "boseriko",
+    "TwisWua"
   ]
 };
 
